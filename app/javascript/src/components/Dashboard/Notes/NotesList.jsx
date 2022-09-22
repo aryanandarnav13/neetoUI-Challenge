@@ -5,10 +5,10 @@ import { Typography, Dropdown, Tag, Tooltip, Avatar } from "neetoui";
 
 import { calculateCreatedAgo, weekDaydateFormat } from "./utils";
 
-const NotesList = ({ key, note, setSelectedNoteIds, setShowDeleteAlert }) => {
+const NotesList = ({ note, setSelectedNoteIds, setShowDeleteAlert }) => {
   const handleDelete = () => {
     setShowDeleteAlert(true);
-    setSelectedNoteIds(key);
+    setSelectedNoteIds(note.id);
   };
 
   return (
@@ -18,8 +18,7 @@ const NotesList = ({ key, note, setSelectedNoteIds, setShowDeleteAlert }) => {
         <Dropdown buttonStyle="text" icon={MenuVertical}>
           <li className="m-2">Edit</li>
           <li className="m-2" onClick={handleDelete}>
-            {" "}
-            Delete{" "}
+            Delete
           </li>
         </Dropdown>
       </div>
@@ -41,7 +40,7 @@ const NotesList = ({ key, note, setSelectedNoteIds, setShowDeleteAlert }) => {
             position="bottom"
           >
             <Typography style="body3">
-              Created {calculateCreatedAgo(note.created_at)}{" "}
+              Created {`${calculateCreatedAgo(note.created_at)} `}
             </Typography>
           </Tooltip>
           <Avatar
