@@ -1,3 +1,4 @@
+import { buildSelectOptions } from "utils";
 import * as yup from "yup";
 
 export const NOTES_FORM_INITIAL_FORM_VALUES = {
@@ -7,44 +8,16 @@ export const NOTES_FORM_INITIAL_FORM_VALUES = {
   tags: [],
 };
 
-export const ROLES = [
-  {
-    label: "Admin",
-    value: "admin",
-  },
+export const TAGS = buildSelectOptions([
+  "Getting Started",
+  "Onboarding",
+  "User Flow",
+  "UX",
+  "Bugs",
+  "V2",
+]);
 
-  {
-    label: "Non-Admin",
-    value: "nonAdmin",
-  },
-];
-
-export const TAGS = [
-  {
-    label: "Getting Started",
-    value: 1,
-  },
-  {
-    label: "Onboarding",
-    value: 2,
-  },
-  {
-    label: "User Flow",
-    value: 3,
-  },
-  {
-    label: "UX",
-    value: 4,
-  },
-  {
-    label: "Bugs",
-    value: 5,
-  },
-  {
-    label: "v2",
-    value: 6,
-  },
-];
+export const ROLES = buildSelectOptions(["Team Lead", "Manager"]);
 
 export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
   title: yup.string().required("Title is required"),
