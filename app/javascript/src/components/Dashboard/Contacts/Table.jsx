@@ -2,7 +2,7 @@ import React from "react";
 
 import { Table as ContactList } from "neetoui";
 
-import { ROW_DATA, contactListData } from "./utils";
+import { ROW_DATA, contactListData } from "./constants";
 
 const Table = () => (
   <ContactList
