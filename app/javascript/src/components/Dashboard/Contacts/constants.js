@@ -1,30 +1,33 @@
-import React from "react";
+import { buildSelectOptions } from "utils";
+import * as yup from "yup";
 
-import { MenuHorizontal } from "neetoicons";
-import { Dropdown, Avatar, Typography } from "neetoui";
+import { renderNameRoleAvatar, renderDropdown } from "./ContactsList";
 
-const renderNameRoleAvatar = (name, { role }) => (
-  <div className="flex space-x-4">
-    <Avatar
-      user={{
-        imageUrl: "https://i.pravatar.cc/300",
-      }}
-    />
-    <div>
-      <Typography style="h5">{name}</Typography>
-      <Typography className="neeto-ui-text-gray-600" style="body3">
-        {role}
-      </Typography>
-    </div>
-  </div>
-);
+export const CONTACT_FORM_INITIAL_FORM_VALUES = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  role: null,
+};
 
-const renderDropdown = () => (
-  <Dropdown buttonStyle="text" icon={MenuHorizontal} strategy="fixed">
-    <li>Edit</li>
-    <li>Delete</li>
-  </Dropdown>
-);
+export const ROLES = buildSelectOptions(["Team Lead", "Manager"]);
+
+export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
+  firstName: yup.string().required("First name is required"),
+  lastName: yup.string().required("Last name is required"),
+  email: yup
+    .string()
+    .email("Enter a valid email")
+    .required("Email is required"),
+  role: yup
+    .object()
+    .nullable()
+    .required("Role is required")
+    .shape({
+      label: yup.string().oneOf(ROLES.map(role => role.label)),
+      value: yup.string().oneOf(ROLES.map(role => role.value)),
+    }),
+});
 
 export const contactListData = [
   {
