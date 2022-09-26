@@ -29,7 +29,7 @@ export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
     }),
 });
 
-export const contactListData = [
+export const contactListData = setShowDeleteAlert => [
   {
     dataIndex: "name",
     key: "name",
@@ -54,7 +54,7 @@ export const contactListData = [
     dataIndex: "more",
     key: "more",
     width: "10",
-    render: renderDropdown,
+    render: () => renderDropdown(setShowDeleteAlert),
   },
 ];
 

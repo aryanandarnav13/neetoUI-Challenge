@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button } from "neetoui";
 import { Container, Header } from "neetoui/layouts";
 
+import DeleteAlert from "./DeleteAlert";
 import NewContactPane from "./Pane/Create";
 import SideMenu from "./SideMenu";
 import Table from "./Table";
@@ -11,6 +12,7 @@ const Contacts = () => {
   const [showContactMenu, setShowContactMenu] = useState(true);
   const [showNewContactPane, setShowNewContactPane] = useState(false);
   const [searchContact, setSearchContact] = useState("");
+  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
 
   return (
     <>
@@ -34,11 +36,14 @@ const Contacts = () => {
             placeholder: "Search Name, Email, Phone Number etc.",
           }}
         />
-        <Table />
+        <Table setShowDeleteAlert={setShowDeleteAlert} />
         <NewContactPane
           setShowPane={setShowNewContactPane}
           showPane={showNewContactPane}
         />
+        {showDeleteAlert && (
+          <DeleteAlert onClose={() => setShowDeleteAlert(false)} />
+        )}
       </Container>
     </>
   );
