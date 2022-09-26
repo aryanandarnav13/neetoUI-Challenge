@@ -19,9 +19,9 @@ export const renderNameRoleAvatar = (name, { role }) => (
   </div>
 );
 
-export const renderDropdown = () => (
+export const renderDropdown = setShowDeleteAlert => (
   <Dropdown buttonStyle="text" icon={MenuHorizontal} strategy="fixed">
     <li>Edit</li>
-    <li>Delete</li>
+    <li onClick={setShowDeleteAlert}>Delete</li>
   </Dropdown>
 );
