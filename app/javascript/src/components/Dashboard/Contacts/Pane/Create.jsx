@@ -6,7 +6,7 @@ import Form from "./Form";
 
 import { INITIAL_FORM_VALUES } from "../constants";
 
-const NewPane = ({ showPane, setShowPane }) => {
+const Create = ({ showPane, setShowPane }) => {
   const onClose = () => setShowPane(false);
 
   return (
@@ -20,4 +20,4 @@ const NewPane = ({ showPane, setShowPane }) => {
     </Pane>
   );
 };
-export default NewPane;
+export default Create;

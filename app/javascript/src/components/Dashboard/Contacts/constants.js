@@ -29,7 +29,7 @@ export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
     .required("Role is required"),
 });
 
-export const CONTACT_LIST_DATA = setShowDeleteAlert => [
+export const buildContactTableColumnData = setShowDeleteAlert => [
   {
     dataIndex: "name",
     key: "name",
