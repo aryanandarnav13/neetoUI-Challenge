@@ -63,6 +63,7 @@
     "@bigbinary/neeto-icons": "^1.8.17",
     "@bigbinary/neetoui": "^4.0.3",
     "@rails/webpacker": "5.4.3",
+    "antd": "^4.23.3",
     "axios": "^0.26.1",
     "babel-plugin-js-logger": "^1.0.17",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
