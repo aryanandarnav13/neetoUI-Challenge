@@ -1,9 +1,9 @@
 import { buildSelectOptions } from "utils";
 import * as yup from "yup";
 
-import { renderNameRoleAvatar, renderDropdown } from "./ContactsList";
+import { renderNameRoleAvatar, renderActionDropdown } from "./List";
 
-export const CONTACT_FORM_INITIAL_FORM_VALUES = {
+export const INITIAL_FORM_VALUES = {
   firstName: "",
   lastName: "",
   email: "",
@@ -21,15 +21,15 @@ export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
     .required("Email is required"),
   role: yup
     .object()
-    .nullable()
-    .required("Role is required")
     .shape({
       label: yup.string().oneOf(ROLES.map(role => role.label)),
       value: yup.string().oneOf(ROLES.map(role => role.value)),
-    }),
+    })
+    .nullable()
+    .required("Role is required"),
 });
 
-export const contactListData = setShowDeleteAlert => [
+export const CONTACT_LIST_DATA = setShowDeleteAlert => [
   {
     dataIndex: "name",
     key: "name",
@@ -54,7 +54,7 @@ export const contactListData = setShowDeleteAlert => [
     dataIndex: "more",
     key: "more",
     width: "10",
-    render: () => renderDropdown(setShowDeleteAlert),
+    render: () => renderActionDropdown(setShowDeleteAlert),
   },
 ];
 

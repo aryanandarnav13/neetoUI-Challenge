@@ -8,7 +8,7 @@ const SideMenu = ({ showContactMenu }) => {
   const [isSearchCollapsed, setIsSearchCollapsed] = useState(true);
 
   return (
-    <div className="flex">
+    <div>
       <MenuBar showMenu={showContactMenu} title="Contacts">
         <MenuBar.Block active count={0} label="All" />
         <MenuBar.Block count={0} label="Archived" />

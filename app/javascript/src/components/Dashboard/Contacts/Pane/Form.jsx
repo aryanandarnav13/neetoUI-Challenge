@@ -28,12 +28,14 @@ const Form = ({ onClose, contact }) => {
           <Pane.Body className="space-y-6">
             <div className="space-between flex w-full">
               <Input
+                required
                 className="mr-5 w-full"
                 label="First Name"
                 name="firstName"
                 placeholder="Enter first name"
               />
               <Input
+                required
                 className="w-full"
                 label="Last Name"
                 name="lastName"
@@ -41,6 +43,7 @@ const Form = ({ onClose, contact }) => {
               />
             </div>
             <Input
+              required
               className="w-full flex-grow-0"
               label="Email Address"
               name="email"
@@ -48,6 +51,7 @@ const Form = ({ onClose, contact }) => {
             />
             <Select
               isSearchable
+              required
               className="w-full flex-grow-0"
               label="Role"
               name="role"

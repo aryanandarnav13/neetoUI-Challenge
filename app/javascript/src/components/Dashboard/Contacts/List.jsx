@@ -10,16 +10,16 @@ export const renderNameRoleAvatar = (name, { role }) => (
         imageUrl: "https://i.pravatar.cc/300",
       }}
     />
-    <div>
+    <span>
       <Typography style="h5">{name}</Typography>
       <Typography className="neeto-ui-text-gray-600" style="body3">
         {role}
       </Typography>
-    </div>
+    </span>
   </div>
 );
 
-export const renderDropdown = setShowDeleteAlert => (
+export const renderActionDropdown = setShowDeleteAlert => (
   <Dropdown buttonStyle="text" icon={MenuHorizontal} strategy="fixed">
     <li>Edit</li>
     <li onClick={setShowDeleteAlert}>Delete</li>
