@@ -3,6 +3,7 @@ import React from "react";
 import { MenuHorizontal } from "neetoicons";
 import { Dropdown, Avatar, Typography } from "neetoui";
 
+const { Menu, MenuItem } = Dropdown;
 export const renderNameRoleAvatar = (name, { role }) => (
   <div className="flex space-x-4">
     <Avatar
@@ -10,18 +11,22 @@ export const renderNameRoleAvatar = (name, { role }) => (
         imageUrl: "https://i.pravatar.cc/300",
       }}
     />
-    <div>
+    <span>
       <Typography style="h5">{name}</Typography>
       <Typography className="neeto-ui-text-gray-600" style="body3">
         {role}
       </Typography>
-    </div>
+    </span>
   </div>
 );
 
-export const renderDropdown = setShowDeleteAlert => (
+export const renderActionDropdown = setShowDeleteAlert => (
   <Dropdown buttonStyle="text" icon={MenuHorizontal} strategy="fixed">
-    <li>Edit</li>
-    <li onClick={setShowDeleteAlert}>Delete</li>
+    <Menu>
+      <MenuItem.Button style="danger" onClick={setShowDeleteAlert}>
+        Delete
+      </MenuItem.Button>
+      <MenuItem.Button>Edit</MenuItem.Button>
+    </Menu>
   </Dropdown>
 );

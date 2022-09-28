@@ -1,14 +1,14 @@
 import React from "react";
 
-import { Table as ContactList } from "neetoui";
+import { Table as NeetoUITable } from "neetoui";
 
-import { ROW_DATA, contactListData } from "./constants";
+import { ROW_DATA, CONTACT_LIST_DATA } from "./constants";
 
 const Table = ({ setShowDeleteAlert }) => (
-  <ContactList
+  <NeetoUITable
     allowRowClick
     pagination
-    columnData={contactListData(setShowDeleteAlert)}
+    columnData={CONTACT_LIST_DATA(setShowDeleteAlert)}
     rowData={ROW_DATA}
     onRowClick={() => {}}
   />

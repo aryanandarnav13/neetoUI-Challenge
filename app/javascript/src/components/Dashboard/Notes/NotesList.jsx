@@ -40,7 +40,7 @@ const NotesList = ({ note, setSelectedNoteIds, setShowDeleteAlert }) => {
             position="bottom"
           >
             <Typography style="body3">
-              {`Created ${calculateCreatedAgo(note.created_at)} `}
+              Created {`${calculateCreatedAgo(note.created_at)} `}
             </Typography>
           </Tooltip>
           <Avatar
